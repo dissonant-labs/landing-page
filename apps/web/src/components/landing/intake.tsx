@@ -110,7 +110,7 @@ export function Intake() {
 					<div className="alt">
 						<div className="alt-i">
 							<span className="mono">Rather just talk</span>
-							<a href="tel:+33000000000">+33 0 00 00 00 00</a>
+							<a href="tel:+821057921611">+82 10 5792 1611</a>
 						</div>
 						<div className="alt-i">
 							<span className="mono">Rather book a slot</span>
@@ -124,7 +124,7 @@ export function Intake() {
 						</div>
 						<div className="alt-i">
 							<span className="mono">Rather email</span>
-							<a href="mailto:hello@dissonant.co">hello@dissonant.co</a>
+							<a href="mailto:team@dissonant.co">team@dissonant.co</a>
 						</div>
 					</div>
 				</div>

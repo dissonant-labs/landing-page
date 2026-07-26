@@ -16,8 +16,8 @@ export function SiteFooter() {
 					</div>
 				</div>
 				<div className="foot-links">
-					<a href="tel:+33000000000">+33 0 00 00 00 00</a>
-					<a href="mailto:hello@dissonant.co">hello@dissonant.co</a>
+					<a href="tel:+821057921611">+82 10 5792 1611</a>
+					<a href="mailto:team@dissonant.co">team@dissonant.co</a>
 				</div>
 			</div>
 		</footer>
