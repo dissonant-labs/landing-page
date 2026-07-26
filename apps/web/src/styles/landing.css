@@ -178,8 +178,14 @@ select {
 	align-items: center;
 	color: var(--ink);
 }
+/* The wordmark's stems are 32.36 viewBox units on a 374-unit-tall canvas, so
+   the rendered stem is height * 0.0865px. Below 2px a stem can straddle two
+   pixel columns with neither fully inked — which is why the "I", the one glyph
+   that is nothing but a stem, rendered grey on 1x displays at some window
+   widths. 2px is the hard floor (it guarantees one solid column at every
+   sub-pixel offset), so the mark cannot go under 23.11px tall. */
 .logo svg {
-	height: 21px;
+	height: 24px;
 	width: auto;
 	/* Firefox will not derive the width from the viewBox alone; pin the ratio
 	   and keep the flex parent from shrinking it. */
@@ -188,9 +194,12 @@ select {
 	display: block;
 }
 .foot-logo svg {
-	height: 18px;
+	height: 24px;
 }
 @media (max-width: 520px) {
+	/* Stays under the 23.11px floor on purpose: at this width the mark has to
+	   share the bar with the CTA, and phones are HiDPI, so the sub-2px stem is
+	   never rasterised at 1x here. */
 	.logo svg {
 		height: 17px;
 	}
