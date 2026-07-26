@@ -3,6 +3,7 @@ import { Archivo, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
 
 import "../index.css";
 import Providers from "@/components/providers";
+import { ReactGrab } from "@/components/react-grab";
 
 const archivo = Archivo({
 	variable: "--font-archivo",
@@ -42,6 +43,7 @@ export default function RootLayout({
 			className={`${archivo.variable} ${plexMono.variable} ${instrumentSerif.variable}`}
 		>
 			<body>
+				{process.env.NODE_ENV === "development" && <ReactGrab />}
 				<Providers>{children}</Providers>
 			</body>
 		</html>

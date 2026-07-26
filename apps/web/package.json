@@ -33,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "react-grab": "^0.1.50",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"
   }
