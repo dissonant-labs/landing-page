@@ -19,17 +19,7 @@ export function Wordmark() {
 				d="M834 93H979.644C1002.49 93 1021 111.515 1021 134.356V238.644C1021 261.485 1002.49 280 979.644 280H834V93ZM866.365 125.365V247.635H979.644C984.609 247.635 988.635 243.609 988.635 238.644V134.356C988.635 129.391 984.609 125.365 979.644 125.365H866.365Z"
 				fill="currentColor"
 			/>
-			{/* The "I" and the terminal dot are bare axis-aligned rectangles. Every
-			    stem in the wordmark is only 1.8px wide at nav size, so on a 1x
-			    display anti-aliasing smears them across three columns — harmless
-			    for glyphs with some mass, but the "I" is nothing but a stem, so it
-			    reads as a grey line. crispEdges snaps them to the pixel grid; safe
-			    here precisely because neither shape has a diagonal to jag. */}
-			<path
-				d="M1096.52 93H1128.88V280H1096.52V93Z"
-				fill="currentColor"
-				shapeRendering="crispEdges"
-			/>
+			<path d="M1096.52 93H1128.88V280H1096.52V93Z" fill="currentColor" />
 			<path
 				d="M1204.4 134.356V161.327C1204.4 184.168 1222.92 202.683 1245.76 202.683H1346.45C1351.42 202.683 1355.44 206.709 1355.44 211.673V238.644C1355.44 243.609 1351.42 247.635 1346.45 247.635H1245.76C1240.8 247.635 1236.77 243.609 1236.77 238.644V229.654H1204.4V238.644C1204.4 261.485 1222.92 280 1245.76 280H1346.45C1369.29 280 1387.81 261.485 1387.81 238.644V211.673C1387.81 188.832 1369.29 170.317 1346.45 170.317H1245.76C1240.8 170.317 1236.77 166.291 1236.77 161.327V134.356C1236.77 129.391 1240.8 125.365 1245.76 125.365H1346.45C1351.42 125.365 1355.44 129.391 1355.44 134.356V143.346H1387.81V134.356C1387.81 111.515 1369.29 93 1346.45 93H1245.76C1222.92 93 1204.4 111.515 1204.4 134.356Z"
 				fill="currentColor"
@@ -58,11 +48,7 @@ export function Wordmark() {
 				d="M2797.5 93H2984.5V125.365H2907.18V280H2874.82V125.365H2797.5V93Z"
 				fill="currentColor"
 			/>
-			<path
-				d="M3024.06 236.846H3067.21V280H3024.06V236.846Z"
-				fill="#FF1515"
-				shapeRendering="crispEdges"
-			/>
+			<path d="M3024.06 236.846H3067.21V280H3024.06V236.846Z" fill="#FF1515" />
 		</svg>
 	);
 }
