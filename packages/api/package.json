@@ -1,0 +1,26 @@
+{
+  "name": "@landing-page/api",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@landing-page/db": "workspace:*",
+    "@landing-page/env": "workspace:*",
+    "@trpc/client": "catalog:",
+    "@trpc/server": "catalog:",
+    "dotenv": "catalog:",
+    "next": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@landing-page/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
