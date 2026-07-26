@@ -13,6 +13,16 @@ const RAMP = " ..::--==++**##$$";
 const TRACE_ROWS = 7;
 const FLANK_HEIGHT = 840;
 
+/**
+ * Phase units per second. The engine used to advance a flat 0.05 per animation
+ * frame, so the whole page ran at the refresh rate: 60Hz displays got the
+ * intended speed while 120Hz ones (ProMotion, and any browser that does not cap
+ * rAF at 60) ran it at double. 0.05 * 60 keeps the original 60Hz pacing.
+ */
+const PHASE_PER_SEC = 3;
+/** Ignore gaps longer than this (backgrounded tab) instead of jumping ahead. */
+const MAX_STEP = 0.1;
+
 const WAVES = [
 	{ amp: 0.16, freq: 0.052, spd: 0.42, sig: 2.4, ph: 0 },
 	{ amp: 0.11, freq: 0.079, spd: -0.31, sig: 1.8, ph: 2.1 },
@@ -167,6 +177,7 @@ export function AsciiEngine() {
 		let flankRows = 70;
 		let t = 0;
 		let lastFlankFrame = 0;
+		let lastFrame = 0;
 
 		function fitTraces() {
 			const parent = traceA.parentElement;
@@ -204,6 +215,10 @@ export function AsciiEngine() {
 		}
 
 		function frame(ts: number) {
+			const dt = lastFrame
+				? Math.min((ts - lastFrame) / 1000, MAX_STEP)
+				: 1 / 60;
+			lastFrame = ts;
 			const cycle = (Math.sin(t * 0.16) + 1) / 2;
 			const phase = Math.PI * cycle;
 			traceA.textContent = trace(cols, TRACE_ROWS, 3, t * 0.5, ".");
@@ -219,7 +234,7 @@ export function AsciiEngine() {
 				drawFlanks(t * 1.6);
 				lastFlankFrame = ts;
 			}
-			t += 0.05;
+			t += dt * PHASE_PER_SEC;
 			raf = requestAnimationFrame(frame);
 		}
 

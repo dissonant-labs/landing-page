@@ -1,6 +1,8 @@
 export function Wordmark() {
 	return (
 		<svg
+			width="3068"
+			height="374"
 			viewBox="0 0 3068 374"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"

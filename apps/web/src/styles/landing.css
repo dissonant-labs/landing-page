@@ -181,6 +181,10 @@ select {
 .logo svg {
 	height: 21px;
 	width: auto;
+	/* Firefox will not derive the width from the viewBox alone; pin the ratio
+	   and keep the flex parent from shrinking it. */
+	aspect-ratio: 3068 / 374;
+	flex: none;
 	display: block;
 }
 .foot-logo svg {
