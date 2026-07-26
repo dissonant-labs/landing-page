@@ -1,47 +1,49 @@
-"use client";
-import { useQuery } from "@tanstack/react-query";
-
-import { trpc } from "@/utils/trpc";
-
-const TITLE_TEXT = `
- ██████╗ ███████╗████████╗████████╗███████╗██████╗
- ██╔══██╗██╔════╝╚══██╔══╝╚══██╔══╝██╔════╝██╔══██╗
- ██████╔╝█████╗     ██║      ██║   █████╗  ██████╔╝
- ██╔══██╗██╔══╝     ██║      ██║   ██╔══╝  ██╔══██╗
- ██████╔╝███████╗   ██║      ██║   ███████╗██║  ██║
- ╚═════╝ ╚══════╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝
-
- ████████╗    ███████╗████████╗ █████╗  ██████╗██╗  ██╗
- ╚══██╔══╝    ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝
-    ██║       ███████╗   ██║   ███████║██║     █████╔╝
-    ██║       ╚════██║   ██║   ██╔══██║██║     ██╔═██╗
-    ██║       ███████║   ██║   ██║  ██║╚██████╗██║  ██╗
-    ╚═╝       ╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
- `;
+import { Approach } from "@/components/landing/approach";
+import { AsciiEngine } from "@/components/landing/ascii-engine";
+import { Capability } from "@/components/landing/capability";
+import { CommandBar } from "@/components/landing/command-bar";
+import { Deployment } from "@/components/landing/deployment";
+import { Faq } from "@/components/landing/faq";
+import { Hero } from "@/components/landing/hero";
+import { Intake } from "@/components/landing/intake";
+import { InterferenceMonitor } from "@/components/landing/interference-monitor";
+import { Operators } from "@/components/landing/operators";
+import { Problem } from "@/components/landing/problem";
+import { SiteFooter } from "@/components/landing/site-footer";
+import { StatusBar } from "@/components/landing/status-bar";
+import { TargetProfiles } from "@/components/landing/target-profiles";
+import { Terms } from "@/components/landing/terms";
 
 export default function Home() {
-  const healthCheck = useQuery(trpc.healthCheck.queryOptions());
+	return (
+		<>
+			<div className="edge edge-l" aria-hidden="true" />
+			<div className="edge edge-r" aria-hidden="true" />
 
-  return (
-    <div className="container mx-auto max-w-3xl px-4 py-2">
-      <pre className="overflow-x-auto font-mono text-sm">{TITLE_TEXT}</pre>
-      <div className="grid gap-6">
-        <section className="rounded-lg border p-4">
-          <h2 className="mb-2 font-medium">API Status</h2>
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${healthCheck.data ? "bg-green-500" : "bg-red-500"}`}
-            />
-            <span className="text-sm text-muted-foreground">
-              {healthCheck.isLoading
-                ? "Checking..."
-                : healthCheck.data
-                  ? "Connected"
-                  : "Disconnected"}
-            </span>
-          </div>
-        </section>
-      </div>
-    </div>
-  );
+			<StatusBar />
+			<CommandBar />
+
+			<div className="shell" id="top">
+				<Hero />
+			</div>
+
+			<InterferenceMonitor />
+
+			<div className="shell">
+				<Problem />
+				<TargetProfiles />
+				<Approach />
+				<Capability />
+				<Deployment />
+				<Terms />
+				<Operators />
+				<Faq />
+				<Intake />
+			</div>
+
+			<SiteFooter />
+
+			<AsciiEngine />
+		</>
+	);
 }
