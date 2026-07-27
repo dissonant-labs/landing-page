@@ -27,10 +27,27 @@ const instrumentSerif = Instrument_Serif({
 	display: "swap",
 });
 
+const title = "Dissonant - Your AI Transformation Task Force";
+const description =
+	"Dissonant rebuilds the internal operations of established companies around AI. Fixed fee. Full ownership. We build it, we hand it over, we leave.";
+
 export const metadata: Metadata = {
-	title: "Dissonant — AI transformation task force",
-	description:
-		"Dissonant rebuilds the internal operations of established companies around AI. Fixed fee. Full ownership. We build it, we hand it over, we leave.",
+	metadataBase: new URL("https://dissonant.co"),
+	title,
+	description,
+	openGraph: {
+		title,
+		description,
+		url: "/",
+		siteName: "Dissonant",
+		type: "website",
+		locale: "en_US",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title,
+		description,
+	},
 };
 
 export default function RootLayout({
