@@ -32,6 +32,19 @@
 html {
 	scroll-behavior: smooth;
 }
+/* Lenis animates the scroll position itself. Native smooth behaviour would fight it
+   on every anchor jump, so hand the scroller over once Lenis has mounted — the rule
+   above stays as the fallback for the no-JS and reduced-motion paths. */
+html.lenis {
+	scroll-behavior: auto;
+}
+/* Anchor targets clear the sticky command bar. Lenis applies the same offset itself
+   (see smooth-scroll.tsx); this covers everyone it isn't running for. */
+#top,
+#deployment,
+#intake {
+	scroll-margin-top: 67px;
+}
 body {
 	background: var(--paper);
 	color: var(--ink);
@@ -1236,8 +1249,16 @@ details p {
 .frow:not(.frow-2) .fi {
 	border-right: none;
 }
+/* The focus ring belongs to the cell, not to the control: the control fills the
+   cell edge to edge, so its own outline lands outside the cell and is painted over
+   by the neighbouring cells. Drawn inset so it reads as a border on the cell. */
 .fi:focus-within {
 	background: var(--wash);
+	outline: 1.5px solid var(--red);
+	outline-offset: -1.5px;
+}
+.fi :focus-visible {
+	outline: none;
 }
 @media (max-width: 719px) {
 	.fi {
@@ -1301,6 +1322,26 @@ select {
 	text-transform: uppercase;
 	color: var(--ink-3);
 	line-height: 1.9;
+}
+.fnote-ok {
+	color: var(--red);
+}
+/* Honeypot: off-screen for sighted users, `aria-hidden` keeps it out of the
+   accessibility tree, so only a bot filling every field will reach it. */
+.hp {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+.form[aria-busy="true"] .fi {
+	opacity: 0.55;
+}
+.btn:disabled {
+	cursor: default;
+	opacity: 0.6;
 }
 
 .alt {

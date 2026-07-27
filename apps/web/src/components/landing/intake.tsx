@@ -1,18 +1,50 @@
 "use client";
 
+import {
+	HEADCOUNTS,
+	type Headcount,
+	type IntakeInput,
+} from "@landing-page/api/intake-schema";
+import { useMutation } from "@tanstack/react-query";
 import { type FormEvent, useState } from "react";
+import { toast } from "sonner";
+
+import { trpc } from "@/utils/trpc";
 
 import { SectionMarker } from "./section-marker";
 
-const HEADCOUNTS = ["Under 50", "50 – 200", "200 – 1,000", "Over 1,000"];
+function readForm(form: HTMLFormElement): IntakeInput {
+	const data = new FormData(form);
+	const text = (field: string) => String(data.get(field) ?? "").trim();
+
+	return {
+		name: text("name"),
+		company: text("company"),
+		email: text("email"),
+		headcount: text("headcount") as Headcount,
+		sector: text("sector"),
+		pain: text("pain"),
+		fax: text("fax"),
+	};
+}
 
 export function Intake() {
 	const [submitted, setSubmitted] = useState(false);
 
+	const submit = useMutation(
+		trpc.intake.submit.mutationOptions({
+			onSuccess: () => setSubmitted(true),
+			onError: (error) => toast.error(error.message),
+		}),
+	);
+
 	function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-		setSubmitted(true);
+		if (submitted) return;
+		submit.mutate(readForm(event.currentTarget));
 	}
+
+	const pending = submit.isPending;
 
 	return (
 		<section id="intake">
@@ -25,7 +57,12 @@ export function Intake() {
 						quarter, and we'll come back within two business days with an honest
 						read on whether it's worth scoping — or a straight no.
 					</p>
-					<form className="form" id="intakeForm" onSubmit={handleSubmit}>
+					<form
+						className="form"
+						id="intakeForm"
+						onSubmit={handleSubmit}
+						aria-busy={pending}
+					>
 						<div className="frow frow-2">
 							<div className="fi">
 								<label htmlFor="f-name">Name</label>
@@ -34,7 +71,10 @@ export function Intake() {
 									name="name"
 									type="text"
 									placeholder="Full name"
+									autoComplete="name"
+									maxLength={120}
 									required
+									disabled={pending || submitted}
 								/>
 							</div>
 							<div className="fi">
@@ -44,7 +84,10 @@ export function Intake() {
 									name="company"
 									type="text"
 									placeholder="Legal or trading name"
+									autoComplete="organization"
+									maxLength={160}
 									required
+									disabled={pending || submitted}
 								/>
 							</div>
 						</div>
@@ -56,12 +99,20 @@ export function Intake() {
 									name="email"
 									type="email"
 									placeholder="name@company.com"
+									autoComplete="email"
+									maxLength={200}
 									required
+									disabled={pending || submitted}
 								/>
 							</div>
 							<div className="fi">
 								<label htmlFor="f-size">Headcount</label>
-								<select id="f-size" name="headcount">
+								<select
+									id="f-size"
+									name="headcount"
+									defaultValue={HEADCOUNTS[0]}
+									disabled={pending || submitted}
+								>
 									{HEADCOUNTS.map((headcount) => (
 										<option key={headcount}>{headcount}</option>
 									))}
@@ -76,7 +127,9 @@ export function Intake() {
 									name="sector"
 									type="text"
 									placeholder="e.g. industrial distribution, 40 years, six depots"
+									maxLength={300}
 									required
+									disabled={pending || submitted}
 								/>
 							</div>
 						</div>
@@ -89,21 +142,46 @@ export function Intake() {
 									id="f-pain"
 									name="pain"
 									placeholder="Describe it the way you'd describe it to your operations director. Two or three sentences is plenty. If you don't know what's wrong yet, say that instead — that's what the analysis is for."
+									maxLength={5000}
 									required
+									disabled={pending || submitted}
 								/>
 							</div>
 						</div>
+						<div className="hp" aria-hidden="true">
+							<label htmlFor="f-fax">Fax</label>
+							<input
+								id="f-fax"
+								name="fax"
+								type="text"
+								tabIndex={-1}
+								autoComplete="off"
+							/>
+						</div>
 						<div className="fsubmit">
-							<p className="fnote">
-								No pitch deck. No discovery call sequence.
-								<br />A written response from Samy or Ceyhun.
+							<p
+								className={submitted ? "fnote fnote-ok" : "fnote"}
+								aria-live="polite"
+							>
+								{submitted ? (
+									<>
+										Sent to team@dissonant.co.
+										<br />
+										We'll come back within two business days.
+									</>
+								) : (
+									<>
+										No pitch deck. No discovery call sequence.
+										<br />A written response from Samy or Ceyhun.
+									</>
+								)}
 							</p>
 							<button
 								type="submit"
 								className="btn btn-solid"
-								disabled={submitted}
+								disabled={pending || submitted}
 							>
-								{submitted ? "Received" : "Send"}
+								{submitted ? "Received" : pending ? "Sending…" : "Send"}
 							</button>
 						</div>
 					</form>

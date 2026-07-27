@@ -17,6 +17,7 @@
     "@trpc/server": "catalog:",
     "dotenv": "catalog:",
     "next": "catalog:",
+    "resend": "^6.18.0",
     "zod": "catalog:"
   },
   "devDependencies": {
