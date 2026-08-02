@@ -420,9 +420,17 @@ h1 {
 }
 .cl {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 7px;
+}
+.cl-mark {
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 40px;
+	/* Tall enough for BOIP, the one stacked lockup: it has to run physically
+	   larger than the wordmarks to carry the same optical weight. */
+	height: 46px;
 }
 /* The marks arrive in mixed formats and brand colours. Flattening them to a
    black silhouette and carrying the grey purely in the alpha keeps all eight
@@ -433,7 +441,7 @@ h1 {
 	   viewBox but no intrinsic width, and those collapse to nothing unless one
 	   axis is stated outright. max-width is only a backstop for the grid cell. */
 	height: calc(23px * var(--s));
-	max-width: 120px;
+	max-width: 150px;
 	object-fit: contain;
 	filter: grayscale(1) brightness(0);
 	opacity: 0.38;
@@ -441,6 +449,79 @@ h1 {
 }
 .cl:hover img {
 	opacity: 1;
+}
+/* Reserved whether or not the client has a write-up, so the four badges never
+   push their own row's logos off the baseline the other four sit on. */
+.cl-cs {
+	display: flex;
+	align-items: center;
+	height: 18px;
+}
+.cl-cs a {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 3px 6px;
+	border: 1px solid var(--rule);
+	font-family: var(--mono);
+	font-size: 9px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	line-height: 1;
+	color: var(--ink-4);
+	text-decoration: none;
+	transition:
+		color 0.18s,
+		border-color 0.18s,
+		background-color 0.18s,
+		transform 0.18s;
+}
+/* Same red index square the section markers use, so the badge reads as part of
+   the page's instrument language rather than a pill borrowed from a SaaS site. */
+.cl-cs a::before {
+	content: "";
+	width: 4px;
+	height: 4px;
+	background: var(--ink-4);
+	transition: background-color 0.18s;
+}
+.cl-cs .arw {
+	font-size: 11px;
+	line-height: 0;
+	transition: transform 0.18s;
+}
+.cl:hover .cl-cs a {
+	color: var(--ink-2);
+	border-color: var(--rule-2);
+	background: var(--wash);
+}
+.cl:hover .cl-cs a::before {
+	background: var(--red);
+}
+.cl-cs a:hover {
+	color: var(--ink);
+	border-color: var(--ink);
+	transform: translateY(-1px);
+}
+.cl-cs a:hover .arw {
+	transform: translateX(2px);
+}
+.cl-cs a:focus-visible {
+	outline: 1px solid var(--ink);
+	outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+	.cl-cs a,
+	.cl-cs .arw {
+		transition: none;
+	}
+	.cl-cs a:hover {
+		transform: none;
+	}
+	.cl-cs a:hover .arw {
+		transform: none;
+	}
 }
 
 /* ── interference monitor ── */

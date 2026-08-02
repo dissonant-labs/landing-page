@@ -6,17 +6,41 @@ type Client = {
 	   the wide ones dominate. Each scale nudges the shared cap until the logos
 	   read as the same visual weight. */
 	scale?: number;
+	/* Anchor for the client's write-up. Present only on the four engagements we
+	   publish, so the badge slot renders empty for the rest and every mark stays
+	   on the same baseline. */
+	caseStudy?: string;
 };
 
 const CLIENTS: Client[] = [
-	{ name: "Hadrian", src: "/clients/hadrian.png", scale: 0.8 },
-	{ name: "360Talent", src: "/clients/360talent.svg", scale: 1.1 },
-	{ name: "KVK", src: "/clients/kvk.png", scale: 0.8 },
-	{ name: "Keepbook", src: "/clients/keepbook.svg", scale: 0.8 },
-	{ name: "BOIP", src: "/clients/boip.png", scale: 1.5 },
-	{ name: "Adriel", src: "/clients/adriel.png" },
-	{ name: "GenPage", src: "/clients/genpage.png", scale: 0.9 },
-	{ name: "Hessian Labs", src: "/clients/hessian-labs.png", scale: 1.05 },
+	{ name: "Hadrian", src: "/clients/hadrian.png", scale: 0.68 },
+	{ name: "360Talent", src: "/clients/360talent.svg", scale: 1.09 },
+	{
+		name: "KVK",
+		src: "/clients/kvk.png",
+		scale: 0.72,
+		caseStudy: "#approach",
+	},
+	{
+		name: "Keepbook",
+		src: "/clients/keepbook.svg",
+		scale: 0.76,
+		caseStudy: "#approach",
+	},
+	{
+		name: "BOIP",
+		src: "/clients/boip.png",
+		scale: 1.9,
+		caseStudy: "#approach",
+	},
+	{ name: "Adriel", src: "/clients/adriel.png", scale: 0.98 },
+	{
+		name: "GenPage",
+		src: "/clients/genpage.png",
+		scale: 1.04,
+		caseStudy: "#approach",
+	},
+	{ name: "Hessian Labs", src: "/clients/hessian-labs.png", scale: 1.34 },
 ];
 
 export function Clients() {
@@ -26,15 +50,30 @@ export function Clients() {
 			<div className="logo-wall">
 				{CLIENTS.map((client) => (
 					<div className="cl" key={client.name}>
-						<img
-							src={client.src}
-							alt={client.name}
-							style={
-								client.scale
-									? ({ "--s": client.scale } as React.CSSProperties)
-									: undefined
-							}
-						/>
+						<div className="cl-mark">
+							<img
+								src={client.src}
+								alt={client.name}
+								style={
+									client.scale
+										? ({ "--s": client.scale } as React.CSSProperties)
+										: undefined
+								}
+							/>
+						</div>
+						<div className="cl-cs">
+							{client.caseStudy && (
+								<a
+									href={client.caseStudy}
+									aria-label={`${client.name} case study`}
+								>
+									Case study
+									<span className="arw" aria-hidden="true">
+										&rsaquo;
+									</span>
+								</a>
+							)}
+						</div>
 					</div>
 				))}
 			</div>
