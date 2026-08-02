@@ -55,7 +55,7 @@ export function Intake() {
 					<p className="lede">
 						A few lines is enough. We take on a small number of engagements per
 						quarter, and we'll come back within two business days with an honest
-						read on whether it's worth scoping — or a straight no.
+						read on whether it's worth scoping, or a straight no.
 					</p>
 					<form
 						className="form"
@@ -121,7 +121,7 @@ export function Intake() {
 						</div>
 						<div className="frow">
 							<div className="fi">
-								<label htmlFor="f-sector">Sector — what you make or move</label>
+								<label htmlFor="f-sector">Sector: what you make or move</label>
 								<input
 									id="f-sector"
 									name="sector"
@@ -136,12 +136,12 @@ export function Intake() {
 						<div className="frow">
 							<div className="fi">
 								<label htmlFor="f-pain">
-									What's going wrong — in a few lines
+									What's going wrong, in a few lines
 								</label>
 								<textarea
 									id="f-pain"
 									name="pain"
-									placeholder="Describe it the way you'd describe it to your operations director. Two or three sentences is plenty. If you don't know what's wrong yet, say that instead — that's what the analysis is for."
+									placeholder="Describe it the way you'd describe it to your operations director. Two or three sentences is plenty. If you don't know what's wrong yet, say that instead. That's what the analysis is for."
 									maxLength={5000}
 									required
 									disabled={pending || submitted}
@@ -193,11 +193,11 @@ export function Intake() {
 						<div className="alt-i">
 							<span className="mono">Rather book a slot</span>
 							<a
-								href="https://cal.com/dissonant"
+								href="https://cal.com/dissonant-labs/30min"
 								target="_blank"
 								rel="noopener"
 							>
-								Twenty minutes with Samy
+								Talk to Samy &amp; Ceyhun
 							</a>
 						</div>
 						<div className="alt-i">

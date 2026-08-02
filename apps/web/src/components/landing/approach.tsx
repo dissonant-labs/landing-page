@@ -2,15 +2,15 @@ import { SectionMarker } from "./section-marker";
 
 const CREDENTIALS = [
 	{
-		label: "01 — We've built the products",
+		label: "01 · We've built the products",
 		copy: "Twenty years combined across SaaS, growth and AI/ML. We founded and shipped our own venture-funded product, so we know what it costs to build something that has to keep running.",
 	},
 	{
-		label: "02 — And built them for others",
+		label: "02 · And built them for others",
 		copy: "Internal AI systems delivered inside large corporates, through their security reviews and against their legacy databases. Not a lab, not a proof of concept.",
 	},
 	{
-		label: "03 — We stay current, deliberately",
+		label: "03 · We stay current, deliberately",
 		copy: "This field moves monthly. Knowing what became possible last quarter is most of the job, and it is the part your team cannot do while also running the company.",
 	},
 ];
@@ -64,7 +64,7 @@ export function Approach() {
 					<p className="lede">
 						We are here to make your operations faster. Most of the time in
 						companies like yours that means AI, because the bottleneck is
-						reading, sorting, matching and re-typing — exactly the work that has
+						reading, sorting, matching and re-typing, exactly the work that has
 						become cheap in the last three years. Sometimes it just means a
 						properly built piece of software. We'll tell you which one you're
 						looking at, build it, hand it over, and stay reachable long after
@@ -103,7 +103,7 @@ export function Approach() {
 							We work with a standing network of vetted engineers, designers and
 							specialists we have shipped with before. When a project needs more
 							scale, or you need it faster than two people can move, we bring
-							them in — vetted already, no search, no ramp-up. They are managed
+							them in. Vetted already, no search, no ramp-up. They are managed
 							by us and carried by us, and the cost sits inside the fixed price
 							we quoted before the work started. You never receive a second
 							invoice and you never manage a contractor you didn't choose.

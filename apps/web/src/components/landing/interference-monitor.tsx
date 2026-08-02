@@ -4,8 +4,8 @@ export function InterferenceMonitor() {
 			<div className="scope-in">
 				<div className="scope-head">
 					<div className="ro">
-						Phase interference monitor
-						<b id="ro-mode">— dual trace</b>
+						Dissonance monitor
+						<b id="ro-mode">· out of phase</b>
 					</div>
 					<div className="ro">
 						Delta
@@ -13,7 +13,7 @@ export function InterferenceMonitor() {
 					</div>
 					<div className="ro">
 						Status
-						<b id="ro-state">Drift</b>
+						<b id="ro-state">Dissonant</b>
 					</div>
 				</div>
 				<div className="scope-body">
@@ -23,11 +23,11 @@ export function InterferenceMonitor() {
 				<div className="scope-legend">
 					<div className="key">
 						<i />
-						Trace A — market capability
+						Trace A · market capability
 					</div>
 					<div className="key k-r">
 						<i />
-						Trace B — your internal operations
+						Trace B · your internal operations
 					</div>
 				</div>
 			</div>

@@ -10,32 +10,32 @@ type Profile = {
 
 const PROFILES: Profile[] = [
 	{
-		tag: "Profile 01 — measurable loss",
+		tag: "Profile 01 · measurable loss",
 		title: "You already feel it.",
-		body: "A competitor turns quotes around in an hour. You take three days, and you know exactly why: four people re-keying the same order into three systems that were never meant to talk. The loss is already on your P&L. You just don't have anyone in the building who can fix it.",
+		body: "The business is growing, but too much of that growth is being absorbed by manual work, extra headcount and disconnected systems. Your team is busy, but too much of their time goes into keeping the machine running instead of moving the business forward. You know what is broken. You just do not have anyone in the building who can fix it.",
 		signals: [
-			"Deals lost on response time, not price",
-			"Headcount growing faster than revenue",
+			"Staff stuck on repetitive work that creates little value",
+			"Headcount growing just to keep up with existing volume",
 			"One retiring employee understands the database",
-			"Six SaaS subscriptions, none integrated",
+			"Core processes unchanged in a decade",
 		],
 		cta: {
-			copy: "You already know what's broken. Tell us in a few lines and we'll scope it — fixed price, fixed timeline, in writing.",
+			copy: "You already know what's broken. Tell us in a few lines and we'll scope it. Fixed price, fixed timeline, in writing.",
 			label: "Scope my project",
 		},
 	},
 	{
-		tag: "Profile 02 — invisible ceiling",
+		tag: "Profile 02 · invisible ceiling",
 		title: "You can't see it yet.",
-		body: "You read about AI constantly and none of it maps to your business. Nobody on your team has built with it, so nobody can tell you what's actually on the table versus what's noise. The gap isn't costing you visibly — which is precisely the problem. We put a number on it in week one.",
+		body: "You read about AI constantly, but none of it maps cleanly to your business. You know it can make your company faster and leaner, yet there is no obvious place to start. Off-the-shelf tools rarely fit how you operate, and nobody internally has the time to make it real. We identify where the value is and put a number on it in week one.",
 		signals: [
 			"No internal benchmark for what's possible",
-			"Vendors selling seats, not outcomes",
-			"Core processes unchanged in a decade",
-			"Institutional knowledge trapped in people",
+			"SaaS vendors selling seats, not outcomes",
+			"Internal experiments that never become working systems",
+			"Competitors improving while you are still deciding where to begin",
 		],
 		cta: {
-			copy: "You don't know what's possible yet. We ask the questions, map your workflows and come back with what's worth building.",
+			copy: "You don't know where to start yet. Tell us how the business runs and we'll find it. Fixed price, fixed timeline, in writing.",
 			label: "Run the analysis",
 		},
 	},

@@ -16,7 +16,7 @@ const STAGES: Stage[] = [
 		title: "Diagnostic",
 		duration: "Week 1–2",
 		paragraphs: [
-			"We talk. If you already know what's broken, we scope it directly. If you don't, we run the analysis ourselves — we ask your team the questions that surface where the time and money are going, and map the workflows behind it.",
+			"We talk. If you already know what's broken, we scope it directly. If you don't, we run the analysis ourselves: we ask your team the questions that surface where the time and money are going, and map the workflows behind it.",
 			"You get a written gap analysis: what's costing you, roughly what it's worth to fix, and what we'd build first. It's yours whether or not you continue.",
 		],
 		price: { amount: "No charge", caption: "No commitment either" },
@@ -27,7 +27,7 @@ const STAGES: Stage[] = [
 		title: "Pilot build",
 		duration: "Four weeks",
 		paragraphs: [
-			"We build the single highest-value system from the diagnostic and put it into production with the people who'll use it. Not a demo, not a slide — a working tool your team opens on a Monday morning.",
+			"We build the single highest-value system from the diagnostic and put it into production with the people who'll use it. Not a demo, not a slide. A working tool your team opens on a Monday morning.",
 			"Fixed price, agreed before we start. If it doesn't do what we said it would, you don't proceed to stage two.",
 		],
 		price: { amount: "From $15K", caption: "Fixed · scoped in week two" },
@@ -39,7 +39,7 @@ const STAGES: Stage[] = [
 		duration: "Scoped after the pilot",
 		paragraphs: [
 			"Once the pilot is running and you've seen what it changed, we scope the rest: the connected systems, the harder integrations, the parts that needed the first win to justify.",
-			"If scale or speed demands more hands, we pull from our vetted network — managed by us, inside the quoted price. Ends the same way every project ends — source code, documentation, training, and we step out. Reachable afterwards, on your side of the phone.",
+			"If scale or speed demands more hands, we pull from our vetted network, managed by us, inside the quoted price. Ends the same way every project ends: source code, documentation, training, and we step out. Reachable afterwards, on your side of the phone.",
 		],
 		price: { amount: "Custom", caption: "Quoted to scope · always fixed" },
 	},
@@ -85,7 +85,7 @@ export function Deployment() {
 							Two owners, no account layer and no discovery theatre. The person
 							scoping your project is the person building it, which removes the
 							translation step that makes agency timelines what they are. Where
-							a project needs more hands we bring in our network — but we never
+							a project needs more hands we bring in our network, but we never
 							bring in a layer between you and the build.
 						</p>
 					</div>
@@ -94,7 +94,7 @@ export function Deployment() {
 						<p>
 							Handover means you stop paying us, not that you stop hearing from
 							us. If something breaks in month four, if a supplier changes their
-							file format, if a new person needs walking through it — you email
+							file format, if a new person needs walking through it, you email
 							or call the two people who built it and you get an answer. There
 							is no ticket queue, no support tier and no invoice for a question.
 							The point of this model is that you own a system that works, and a

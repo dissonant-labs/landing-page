@@ -4,7 +4,7 @@ export function StatusBar() {
 			<div className="status-in">
 				<span>
 					<i className="sq" />
-					Intake open — Q3 2026
+					Intake open · Q3 2026
 				</span>
 			</div>
 		</div>

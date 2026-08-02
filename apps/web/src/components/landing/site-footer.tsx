@@ -12,7 +12,7 @@ export function SiteFooter() {
 						className="mono"
 						style={{ letterSpacing: ".06em", textTransform: "none" }}
 					>
-						Phase delta <span id="footDelta">—</span> · dissonant.co
+						Dissonance <span id="footDelta">…</span> · dissonant.co
 					</div>
 				</div>
 				<div className="foot-links">

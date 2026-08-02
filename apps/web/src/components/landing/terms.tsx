@@ -67,8 +67,8 @@ export function Terms() {
 					<h2>You own it. Completely.</h2>
 					<p className="lede">
 						The software industry sells you a tenancy. We build you an asset.
-						Pilots start at $15K, and full builds are quoted to scope — always
-						as one fixed number agreed before any work begins, network resources
+						Pilots start at $15K, and full builds are quoted to scope, always as
+						one fixed number agreed before any work begins, network resources
 						included.
 					</p>
 					<div className="tbl-scroll">

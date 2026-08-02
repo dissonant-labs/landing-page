@@ -226,9 +226,9 @@ export function AsciiEngine() {
 			const deg = Math.round((phase * 180) / Math.PI);
 			readoutDelta.textContent = `${deg}°`;
 			const locked = deg < 14;
-			readoutState.textContent = locked ? "Locked" : "Drift";
+			readoutState.textContent = locked ? "Aligned" : "Dissonant";
 			readoutState.style.color = locked ? "var(--ink)" : "var(--red)";
-			readoutMode.textContent = locked ? "— aligned" : "— dual trace";
+			readoutMode.textContent = locked ? "· in phase" : "· out of phase";
 			if (footDelta) footDelta.textContent = `${deg}°`;
 			if (ts - lastFlankFrame > 110 && flankL.offsetParent !== null) {
 				drawFlanks(t * 1.6);
@@ -248,9 +248,9 @@ export function AsciiEngine() {
 			drawPlates();
 			if (reduce) {
 				readoutDelta.textContent = "180°";
-				readoutState.textContent = "Drift";
+				readoutState.textContent = "Dissonant";
 				readoutState.style.color = "var(--red)";
-				readoutMode.textContent = "— dual trace";
+				readoutMode.textContent = "· out of phase";
 				if (footDelta) footDelta.textContent = "180°";
 				return;
 			}
