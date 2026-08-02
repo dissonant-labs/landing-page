@@ -2,16 +2,16 @@ import { SectionMarker } from "./section-marker";
 
 const CREDENTIALS = [
 	{
-		label: "01 · We've built the products",
-		copy: "Twenty years combined across SaaS, growth and AI/ML. We founded and shipped our own venture-funded product, so we know what it costs to build something that has to keep running.",
+		label: "01 · We have built the products",
+		copy: "Twenty years across SaaS, growth and AI/ML. We have founded, funded and shipped products ourselves, so we know what separates a demo from software you can depend on.",
 	},
 	{
-		label: "02 · And built them for others",
-		copy: "Internal AI systems delivered inside large corporates, through their security reviews and against their legacy databases. Not a lab, not a proof of concept.",
+		label: "02 · We deploy in real companies",
+		copy: "We have delivered AI systems through security reviews, legacy databases and complex internal operations. Not in a lab. Not as a proof of concept. Working software used by real teams.",
 	},
 	{
-		label: "03 · We stay current, deliberately",
-		copy: "This field moves monthly. Knowing what became possible last quarter is most of the job, and it is the part your team cannot do while also running the company.",
+		label: "03 · We know when not to use AI",
+		copy: "AI is a tool, not the strategy. We use it where it creates real leverage and build conventional software where that is the better answer. The goal is not novelty. It is a faster, stronger operation.",
 	},
 ];
 
@@ -60,15 +60,14 @@ export function Approach() {
 			<div className="wrap">
 				<SectionMarker label="Approach" />
 				<div className="pad">
-					<h2>We are not here to sell you AI.</h2>
+					<h2>Your operation, at AI speed.</h2>
 					<p className="lede">
-						We are here to make your operations faster. Most of the time in
-						companies like yours that means AI, because the bottleneck is
-						reading, sorting, matching and re-typing, exactly the work that has
-						become cheap in the last three years. Sometimes it just means a
-						properly built piece of software. We'll tell you which one you're
-						looking at, build it, hand it over, and stay reachable long after
-						the invoice is closed.
+						Most firms can build a good demo. Very few can make it survive your
+						business. We start with the operation, find the real bottleneck, and
+						build the right solution: AI when it creates leverage, conventional
+						software when it does not. Then we integrate it with the systems you
+						already use, get it into production, and stay accountable after
+						launch.
 					</p>
 					<div className="pill-row">
 						{CREDENTIALS.map((credential) => (

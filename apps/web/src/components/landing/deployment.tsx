@@ -51,7 +51,7 @@ export function Deployment() {
 			<div className="wrap">
 				<SectionMarker label="Deployment" />
 				<div className="pad">
-					<h2>Prove it in four weeks. Scale it once you believe it.</h2>
+					<h2>Modernized in weeks, not years.</h2>
 					<p className="lede">
 						You should not have to bet a six-figure budget on people you met
 						last month. So the engagement is staged: a small, fixed-price pilot

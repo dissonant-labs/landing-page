@@ -44,6 +44,13 @@ lerna-debug.log*
 .alchemy
 .vercel
 
+# Claude Code local settings
+.claude/settings.local*.json
+.claude/launch.json
+
+# Scratch files
+logo-loader.html
+
 # Testing
 coverage
 .nyc_output
