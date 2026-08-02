@@ -13,6 +13,7 @@ import { SiteFooter } from "@/components/landing/site-footer";
 import { StatusBar } from "@/components/landing/status-bar";
 import { TargetProfiles } from "@/components/landing/target-profiles";
 import { Terms } from "@/components/landing/terms";
+import { Testimonials } from "@/components/landing/testimonials";
 
 export default function Home() {
 	return (
@@ -37,6 +38,7 @@ export default function Home() {
 				<Deployment />
 				<Terms />
 				<Operators />
+				<Testimonials />
 				<Faq />
 				<Intake />
 			</div>

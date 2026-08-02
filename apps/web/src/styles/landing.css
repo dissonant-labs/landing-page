@@ -1065,6 +1065,168 @@ tbody tr:last-child td {
 	border-color: var(--red);
 }
 
+/* ── testimonials ── */
+.tst {
+	margin-top: 42px;
+	border: 1px solid var(--rule);
+	background: var(--paper);
+}
+.tst-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 13px 20px;
+	border-bottom: 1px solid var(--rule);
+	background: var(--wash);
+}
+.tst-head .mono {
+	color: var(--ink-3);
+}
+.tst-idx {
+	color: var(--ink-2);
+	font-variant-numeric: tabular-nums;
+}
+.tst-idx i {
+	color: var(--ink-4);
+	font-style: normal;
+	margin: 0 3px;
+}
+.tst-body {
+	display: grid;
+	padding: 34px 20px 26px;
+}
+@media (min-width: 820px) {
+	.tst-body {
+		padding: 44px 44px 32px;
+	}
+}
+/* Stacked: one cell, every slide in it. The tallest sets the height. */
+.tst-slide {
+	grid-area: 1 / 1;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+.tst-slide.on {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+.tst-quote {
+	font-size: clamp(18px, 2.1vw, 24px);
+	font-weight: 500;
+	letter-spacing: -0.02em;
+	line-height: 1.45;
+	max-width: 46ch;
+	text-wrap: pretty;
+}
+.tst-slide.on .tst-quote {
+	animation: tst-in 0.42s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+/* The red rule reads as the same index mark the section headers use, rather
+   than a decorative quotation glyph. */
+.tst-quote::before {
+	content: "";
+	display: block;
+	width: 26px;
+	height: 2px;
+	background: var(--red);
+	margin-bottom: 20px;
+}
+.tst-who {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 12px;
+	margin-top: auto;
+	padding-top: 26px;
+}
+.tst-slide.on .tst-who {
+	animation: tst-in 0.42s cubic-bezier(0.22, 0.61, 0.36, 1) 0.06s both;
+}
+.tst-role {
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: -0.015em;
+}
+.tst-org {
+	color: var(--ink-3);
+}
+.tst-foot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 20px;
+	border-top: 1px solid var(--rule);
+}
+.tst-dots {
+	display: flex;
+	gap: 7px;
+}
+.tst-dots button {
+	width: 22px;
+	height: 6px;
+	padding: 0;
+	border: 0;
+	background: var(--rule-2);
+	cursor: pointer;
+	transition: background 0.2s;
+}
+.tst-dots button:hover {
+	background: var(--ink-4);
+}
+.tst-dots button.on {
+	background: var(--red);
+}
+.tst-nav {
+	display: flex;
+	gap: 8px;
+}
+.tst-nav button {
+	width: 34px;
+	height: 30px;
+	padding: 0;
+	border: 1px solid var(--rule-2);
+	background: var(--paper);
+	color: var(--ink-2);
+	font-size: 17px;
+	line-height: 1;
+	cursor: pointer;
+	transition:
+		background 0.16s,
+		border-color 0.16s,
+		color 0.16s;
+}
+.tst-nav button:hover {
+	background: var(--ink);
+	border-color: var(--ink);
+	color: #fff;
+}
+.tst-dots button:focus-visible,
+.tst-nav button:focus-visible {
+	outline: 1px solid var(--ink);
+	outline-offset: 2px;
+}
+@keyframes tst-in {
+	from {
+		opacity: 0;
+		transform: translateY(7px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.tst-slide.on .tst-quote,
+	.tst-slide.on .tst-who {
+		animation: none;
+	}
+}
+
 /* ── stages ── */
 .stages {
 	display: grid;
