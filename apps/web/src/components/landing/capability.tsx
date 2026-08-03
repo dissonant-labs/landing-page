@@ -3,33 +3,33 @@ import { SectionMarker } from "./section-marker";
 const CAPABILITIES = [
 	{
 		idx: "C-01",
-		title: "Quoting and pricing engines",
-		copy: "Spec sheets, RFQs and email threads in. Priced, formatted quotes out. Days compress to minutes without losing your pricing logic.",
+		title: "MVP and full product builds",
+		copy: "From MVP to production platform. Real architecture, real tests, and code that survives its first thousand users, not just its demo.",
 	},
 	{
 		idx: "C-02",
-		title: "Document and order intake",
-		copy: "Purchase orders, invoices and supplier PDFs read, validated and pushed into your ERP. No re-keying, no swivel-chair integration.",
+		title: "Knowledge retrieval systems",
+		copy: "Everything your company knows, made answerable in plain language. Search that understands intent, not keywords, and never retires.",
 	},
 	{
 		idx: "C-03",
-		title: "Institutional memory",
-		copy: "Forty years of drawings, contracts and job files made searchable in plain language, so knowledge stops walking out at retirement.",
+		title: "Legacy system integration",
+		copy: "The ERP, the mainframe and the spreadsheet quietly running the company, wired into everything modern without ripping out what works.",
 	},
 	{
 		idx: "C-04",
-		title: "Legacy system bridges",
-		copy: "The AS/400, the Access database, the spreadsheet that quietly runs scheduling. We build around them rather than forcing a rip-and-replace.",
+		title: "Agents and internal copilots",
+		copy: "Systems that do the work, not just answer questions. Triage, research, reporting and follow-up, run against your own data and rules.",
 	},
 	{
 		idx: "C-05",
-		title: "Internal agents and copilots",
-		copy: "Tools your staff actually open: support triage, sales research, ops reporting. Built to your process, not a generic template.",
+		title: "Computer vision and NLP",
+		copy: "Software that reads what your business runs on: documents, forms, images, email and speech turned into data your systems can act on.",
 	},
 	{
 		idx: "C-06",
 		title: "Go-to-market systems",
-		copy: "Pipeline, outbound and reporting rebuilt with the same discipline. Optional, and only once the operational side is solid.",
+		copy: "Software your sales and marketing teams run themselves. Pipeline, outbound, enrichment and reporting built around how you actually sell.",
 	},
 ];
 
@@ -42,7 +42,9 @@ export function Capability() {
 					<h2>What we actually build.</h2>
 					<p className="lede">
 						Not strategy decks. Working internal systems, deployed on your
-						infrastructure, running your business.
+						infrastructure, running your business. Engineered to hold under load
+						and pass your security review, not prompted together until the demo
+						runs.
 					</p>
 					{/* biome-ignore lint/nursery/useSortedClasses: design-system classes, not Tailwind utilities */}
 					<div className="grid grid-3">

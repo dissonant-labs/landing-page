@@ -899,7 +899,10 @@ tbody tr:last-child td {
 }
 @media (min-width: 880px) {
 	.ops {
-		grid-template-columns: 1fr 1fr;
+		/* minmax(0, 1fr), not 1fr: a plain fr floors at min-content, so the
+		   longer spec value was widening one column and leaving the two cards
+		   visibly different sizes. */
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	}
 }
 .op {
@@ -912,33 +915,56 @@ tbody tr:last-child td {
 .op-id {
 	display: flex;
 	align-items: center;
-	gap: 15px;
-	margin-bottom: 21px;
+	gap: 18px;
+	margin-bottom: 22px;
 }
+/* The two faces are the section's whole argument, so they are sized to be
+   looked at rather than treated as avatars. */
 .op-sig {
-	width: 62px;
-	height: 62px;
+	width: 92px;
+	height: 92px;
 	border: 1px solid var(--rule-2);
 	flex-shrink: 0;
 	overflow: hidden;
+	position: relative;
 }
+/* Red register tick, the same index language as the section markers. */
+.op-sig::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 9px;
+	height: 2px;
+	background: var(--red);
+}
+/* The two shots were taken at very different distances, and both files carry a
+   burnt-in rounded-corner mask. Each portrait therefore sets its own zoom (to
+   bring the heads to a matching size and push the dark corners out of frame)
+   and its own focal point, since neither subject is centred in their file. */
 .op-sig img {
+	--zoom: 1;
+	--fx: 50%;
+	--fy: 50%;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	object-position: var(--fx) var(--fy);
 	display: block;
 	filter: grayscale(1);
+	transform: scale(var(--zoom));
+	transform-origin: var(--fx) var(--fy);
 }
 .op-li {
 	display: inline-flex;
 	align-items: center;
 	gap: 7px;
-	margin-top: 9px;
+	margin-top: 11px;
 	font-family: var(--mono);
 	font-size: 10px;
 	letter-spacing: 0.13em;
 	text-transform: uppercase;
-	color: var(--ink-3);
+	color: var(--ink-4);
 	transition: color 0.18s;
 }
 .op-li:hover {
@@ -965,24 +991,50 @@ tbody tr:last-child td {
 	line-height: 1.68;
 	margin: 0;
 }
+/* A closed panel rather than three rules trailing off the bottom of the card:
+   the block now has an edge on all four sides and reads as the spec sheet for
+   the person above it. */
 .op dl {
-	margin-top: 21px;
-	border-top: 1px solid var(--rule);
+	margin-top: 26px;
+	background: var(--wash);
+	border: 1px solid var(--rule-2);
+}
+/* Label beside value rather than above it: halves the height of the block and
+   lets the three labels line up as a column, so it reads as a spec sheet
+   instead of six stacked fragments. */
+/* Padding lives on the row, not the list, so the dividers run the full width of
+   the panel instead of floating inset from its edges. */
+.op dl > div {
+	display: grid;
+	grid-template-columns: 74px minmax(0, 1fr);
+	align-items: baseline;
+	gap: 0 10px;
+	padding: 10px 14px;
+	border-bottom: 1px solid var(--rule-2);
 }
 .op dt {
 	font-family: var(--mono);
-	font-size: 10px;
-	letter-spacing: 0.13em;
+	font-size: 9.5px;
+	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	color: var(--ink-4);
-	padding-top: 12px;
+	color: var(--ink-3);
 }
 .op dd {
 	font-size: 14px;
-	padding-bottom: 11px;
-	border-bottom: 1px solid var(--rule);
+	line-height: 1.5;
 }
-.op dl > div:last-child dd {
+@media (max-width: 520px) {
+	.op dl > div {
+		grid-template-columns: 1fr;
+		gap: 5px;
+	}
+}
+/* Toned well below the terms so the eye reads the list, not the punctuation. */
+.op dd .sep {
+	color: var(--rule-2);
+	margin: 0 7px;
+}
+.op dl > div:last-child {
 	border-bottom: none;
 }
 
